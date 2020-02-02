@@ -1,0 +1,74 @@
+  <table [formGroup]="contactForm">
+	<tr>
+		<td>First Name:</td>
+		<td></td>
+		<td><input type="text" name="fName"  formControlName="firstName">
+			{{contactForm.get('firstName').value}}
+		</td>
+	</tr>
+	<tr>
+		<td>Last Name:</td>
+		<td></td>
+		<td><input type="text" name="lName" formControlName="lastName">
+		</td>
+	</tr>
+	<tr>
+		<td>Email:</td>
+		<td></td>
+		<td><input type="email" name="eml"  formControlName="email">
+		</td>
+	</tr>
+	<tr >
+		<td colspan="4" formGroupName="address">
+			<table>
+				<tr>
+					<td colspan="4">
+						Address
+					</td>
+				</tr>
+				<tr>
+					<td>Street:</td>
+					<td></td>
+					<td>
+						<input type="text" formControlName="street">
+						{{contactForm.get('address').get('street').value}}
+					</td>
+				</tr>
+				
+				<tr>
+					<td>City:</td>
+					<td></td>
+					<td>
+						<input type="text" formControlName="city">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>State:</td>
+					<td></td>
+					<td>
+						<input type="text" formControlName="state">
+					</td>
+				</tr>
+				<tr>
+					<td>Zip Code:</td>
+					<td></td>
+					<td>
+						<input type="text" formControlName="zip">
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr >
+	
+	<tr>
+		<td colspan="4">
+			<button type="submit" [disabled]="!contactForm.valid">Submit</button>
+
+			<button type="submit" (click)="updateFirstName()">updateFirstName</button>
+
+			<button type="submit" (click)="updatePatch()">update In Patch</button>
+		</td>
+	</tr>
+
+  </table>  
